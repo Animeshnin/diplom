@@ -64,6 +64,28 @@ input.input-field{
     cursor: pointer;
 }
 
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */
+
+}
+[data-tooltip]::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    width: 300px; /* Ширина подсказки */
+    left: 0; top: 0; /* Положение подсказки */
+    background: #1879ba; /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
+}
+[data-tooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: 2em; /* Положение подсказки */
+}
+
 .section1{
     border-bottom: 1px solid #ced4da;
 }
@@ -93,11 +115,11 @@ span.active{
     margin-top: 5px;
 }
 .section2 ul{
-    padding-inline-start: 0px;
+    padding-inline-start: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px;
+    margin: 0;
     width: calc(100% - 120px);
 }
 

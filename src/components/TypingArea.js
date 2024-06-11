@@ -17,16 +17,16 @@ const TypingArea =({
             <div>
                 <div className={'setting'}>
                     <div className={"mode"}>
-                        <p className={'click'} onClick={event => changeTextHandleClick(event)}>Русский</p>
-                        <p className={'click'} onClick={event => changeTextHandleClick(event)}>Английский</p>
-                        <p className={'click'} onClick={event => changeTextHandleClick(event)}>JavaScript</p>
+                        <p className={'click'} data-tooltip="Благодаря этой кнопке можно поменять язык" onClick={event => changeTextHandleClick(event)}>Русский</p>
+                        <p className={'click'} data-tooltip="Благодаря этой кнопке можно поменять язык" onClick={event => changeTextHandleClick(event)}>Английский</p>
+                        <p className={'click'} data-tooltip="Благодаря этой кнопке можно поменять язык" onClick={event => changeTextHandleClick(event)}>JavaScript</p>
 
                     </div>
                 <div className={'stopwatch'}>
-                     <p className={'click'} onClick={event => changeSettingHandleClick(event)}>15</p>
-                     <p className={'click'} onClick={event => changeSettingHandleClick(event)}>30</p>
-                     <p className={'click'} onClick={event => changeSettingHandleClick(event)}>45</p>
-                     <p className={'click'} onClick={event => changeSettingHandleClick(event)}>60</p>
+                     <p className={'click'}  data-tooltip="Благодаря этой кнопке можно поменять время" onClick={event => changeSettingHandleClick(event)}>15</p>
+                     <p className={'click'}  data-tooltip="Благодаря этой кнопке можно поменять время" onClick={event => changeSettingHandleClick(event)}>30</p>
+                     <p className={'click'}  data-tooltip="Благодаря этой кнопке можно поменять время" onClick={event => changeSettingHandleClick(event)}>45</p>
+                     <p className={'click'}  data-tooltip="Благодаря этой кнопке можно поменять время" onClick={event => changeSettingHandleClick(event)}>60</p>
                 </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ const TypingArea =({
                         </li>
                     </ul>
                     <button onClick={resetGame} className="btn">
-                        Попробывать еще раз
+                        Попробовать еще раз
                     </button>
                 </div>
             </div>

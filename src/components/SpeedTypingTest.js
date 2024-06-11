@@ -48,26 +48,37 @@ const  SpeedTypingTest = () => {
     ];
 
 
-    //
+    // хранится текущий текст для набора
     const [typingText, setTypingText] = useState('');
+    // массив текстов
     const [paragraphsText, setParagraphsText] = useState(paragraphsRussian)
+    // ранить текущее значение ввода
     const [inpFieldValue, setInpFieldValue] = useState('');
     const [maxTime, setMaxTime] = useState(60);
+    // оставшееся время
     const [timeLeft, setTimeLeft] = useState(maxTime);
+    // текущий символ
     const [charIndex, setCharIndex] = useState(0);
     const [mistakes, setMistakes] = useState(0);
+    // Вводит ли пользователь текст в данный момент
     const [isTyping, setIsTyping] = useState(false);
     const [WPM, setWPM] = useState(0);
     const [CPM, setCPM] = useState(0);
 
+    // настройки времени для теста
     const changeSettingHandleClick = (event) => {
         setMaxTime(event.target.textContent)
+        setTimeLeft(event.target.textContent)
+        resetGame()
+
     }
 
     const loadParagraph = () => {
+        // Эта строка кода генерирует случайный индекс для выбора абзаца из массива paragraphsText
         const ranIndex = Math.floor(Math.random() * paragraphsText.length);
         const inputField = document.getElementsByClassName('input-field')[0];
         document.addEventListener("keydown", () => inputField.focus());
+        // Здесь отображается текст. Создается массив
         const content = Array.from(paragraphsText[ranIndex]).map((letter, index) => (
             <span key={index} style={{ color: (letter !== ' ') ? 'black' : 'transparent' }}
                   className={`char ${index === 0 ? 'active' : ''}`}>
@@ -75,7 +86,6 @@ const  SpeedTypingTest = () => {
             </span>
         ));
         setTypingText(content);
-        setInpFieldValue('');
         setCharIndex(0);
         setMistakes(0);
         setIsTyping(false);
@@ -85,11 +95,16 @@ const  SpeedTypingTest = () => {
     const changeTextHandleClick = (event) => {
         if(event.target.textContent === "Русский"){
             setParagraphsText(paragraphsRussian)
+            resetGame()
         }
         else if(event.target.textContent === "Английский"){
             setParagraphsText(paragraphsEnglish)
+            resetGame()
+
         } else {
             setParagraphsText(paragraphsJavaScript)
+            resetGame()
+
         }
 
     }
